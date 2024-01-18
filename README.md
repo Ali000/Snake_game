@@ -14,3 +14,9 @@ Snake game, the player would respawn randomly and have to eat food to grow, the 
 4- player should move around with the intention to collect as much as possible without crashing into the walls or the snake's body.\
 5- increment score for each food collected & increase length.\
 6- ability to restart if player loses.
+
+### sources
+https://www.freecodecamp.org/news/javascript-2d-arrays/\
+https://css-tricks.com/snippets/css/complete-guide-grid/\
+https://www.youtube.com/watch?v=EiNiSFIPIQE&t=641s&ab_channel=SlayingTheDragon\
+https://forum.freecodecamp.org/t/display-css-grid-lines/440618\

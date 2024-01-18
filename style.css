@@ -1,0 +1,22 @@
+body {
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  display: inline-grid;
+  grid-template-columns: repeat(20, 25px [col-start]);
+  grid-template-rows: repeat(20, 25px [row-start]);
+  border: 3px solid white;
+}
+
+.start-position {
+  justify-self: center;
+  align-self: center;
+  background-color: lightgreen;
+  width: 100%;
+  height: 100%;
+}
