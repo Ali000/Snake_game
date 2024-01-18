@@ -16,9 +16,10 @@ Snake game, the player would respawn randomly and have to eat food to grow, the 
 6- ability to restart if player loses.
 
 ### sources
-https://www.freecodecamp.org/news/javascript-2d-arrays/\
-https://css-tricks.com/snippets/css/complete-guide-grid/\
-https://www.youtube.com/watch?v=EiNiSFIPIQE&t=641s&ab_channel=SlayingTheDragon\
-https://forum.freecodecamp.org/t/display-css-grid-lines/440618\
-https://developer.mozilla.org/en-US/docs/Web/API/Element/keydown_event\
-https://www.toptal.com/developers/keycode\
+https://www.freecodecamp.org/news/javascript-2d-arrays/ \
+https://css-tricks.com/snippets/css/complete-guide-grid/ \
+https://www.youtube.com/watch?v=EiNiSFIPIQE&t=641s&ab_channel=SlayingTheDragon \
+https://forum.freecodecamp.org/t/display-css-grid-lines/440618 \
+https://developer.mozilla.org/en-US/docs/Web/API/Element/keydown_event \
+https://www.toptal.com/developers/keycode \
+https://developer.mozilla.org/en-US/docs/Web/API/setInterval 
