@@ -7,12 +7,11 @@ const creatGridArray = () => {
 }
 
 let gridArray = creatGridArray();
-// console.log(gridArray);
+
 
 document.addEventListener('keydown', (e) => {
+  const snake = document.querySelector("#snake");
   if(e.code === "KeyA" || e.code === "KeyD" || e.code === "KeyS" || e.code === "KeyW") {
-    console.log(true);
-  } else {
-    console.log(false);
+    snake.style.gridArea = "1 /2";
   }
 }); 

@@ -14,7 +14,7 @@ body {
 }
 
 .start-position {
-  grid-area: 1 / 1 / 1 / 5;
+  grid-area: 1 / 1;
 }
 
 .snake-default {
