@@ -12,5 +12,5 @@ Snake game, the player would respawn randomly and have to eat food to grow, the 
 2- spawn food randomly.\
 3- player should start the game by a button.\
 4- player should move around with the intention to collect as much as possible without crashing into the walls or the snake's body.\
-5- increment score for each food collected.\
+5- increment score for each food collected & increase length.\
 6- ability to restart if player loses.
