@@ -22,4 +22,5 @@ https://www.youtube.com/watch?v=EiNiSFIPIQE&t=641s&ab_channel=SlayingTheDragon \
 https://forum.freecodecamp.org/t/display-css-grid-lines/440618 \
 https://developer.mozilla.org/en-US/docs/Web/API/Element/keydown_event \
 https://www.toptal.com/developers/keycode \
-https://developer.mozilla.org/en-US/docs/Web/API/setInterval 
+https://developer.mozilla.org/en-US/docs/Web/API/setInterval \
+https://travishorn.com/delaying-foreach-iterations-2ebd4b29ad30 

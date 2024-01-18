@@ -26,7 +26,7 @@ document.addEventListener('keydown', (e) => {
     }
 
   } else if(e.code === "KeyS") {
-    snake.style.gridArea = "2 / 1";
+    snake.style.gridArea = snake.style.gridArea = `${positionArray[0][0] + 1} / ${positionArray[0][1]}`;;
   } else if(e.code === "KeyW") {
     
   }
