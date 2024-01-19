@@ -23,4 +23,5 @@ https://forum.freecodecamp.org/t/display-css-grid-lines/440618 \
 https://developer.mozilla.org/en-US/docs/Web/API/Element/keydown_event \
 https://www.toptal.com/developers/keycode \
 https://developer.mozilla.org/en-US/docs/Web/API/setInterval \
-https://travishorn.com/delaying-foreach-iterations-2ebd4b29ad30 
+https://travishorn.com/delaying-foreach-iterations-2ebd4b29ad30 \
+https://stackoverflow.com/questions/11488014/asynchronous-process-inside-a-javascript-for-loop \
