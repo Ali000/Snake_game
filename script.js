@@ -33,10 +33,10 @@ document.addEventListener("keydown", (key) => {
 });
 
 const move = (key) => {
-  if(directionArray[0][0] > 20 || directionArray [0][1] > 20) {
+  if((directionArray[0][0] > 20 || directionArray [0][1] > 20) || directionArray[0][0] < 0 || directionArray[0][1] < 0) {
     gameStart = false;
   }
-  if(gameStart === true) {
+  if(gameStart === true && key === lastKey) {
     setTimeout(() => {
       if(key === "KeyD") {
         directionArray[0][1] += 1;
