@@ -8,6 +8,16 @@ let foodx;
 let foody;
 const snake = document.querySelector("#snake");
 const food = document.querySelector(".food");
+const grid = document.querySelector(".grid");
+
+const growSnake = (positionX, positionY) => {
+  snakeArray.push([positionX, positionY]);
+  console.table("🚀 ~ growSnake ~ snakeArray:", snakeArray)
+  const growth = document.createElement("div");
+  growth.setAttribute('class', 'snake-default');
+  growth.style.gridArea = `${positionX} / ${positionY}`;
+  grid.append(growth);
+};
 
 const creatGridArray = () => {
   let arr = [];
@@ -30,9 +40,6 @@ const generateFood = () => {
 };
 generateFood();
 
-const growSnake = () => {
-
-};
 document.addEventListener("keydown", (key) => {
   lastKey = key.code;
   move(lastKey);
@@ -60,59 +67,10 @@ const move = (key) => {
         console.log("🚀 ~ setTimeout ~ foody:", foody)
         console.log("🚀 ~ setTimeout ~ foodx:", foodx)
         food.style.display = "none";
+        growSnake(foodx, foody);
         generateFood();
       }
       move(key);
   }, 150);
 }
 };
-//listen for key pressed
-// document.addEventListener('keyup', (e) => {
-//   lastKey = e.code;
-//   console.log(lastKey);
-//   gridArray.forEach(() => {
-//     counter++;
-//     console.log("outside timeout counter " + counter);
-//     setTimeout(() => {
-//       moveLeft(e.code);
-//       console.log(counter);
-//     }, counter * 200);
-//   });
-// });
-
-//function to move left, right now it doesn't move the snake.
-// the Idea is the while loop will keep going till another key is pressed.
-const moveLeft = (key) => {
-      snake.style.gridArea = `${positionArray[0][0]} / ${positionArray[0][1] + 1}`;
-      positionArray[0][1] += 1;
-      console.log(key);
-  }
-
-//   if(e.code === "KeyD" && lastKey !== "KeyD") {
-//     lastKey = "KeyD";
-//     while(lastKey === "KeyD") {
-//       counter++;
-//       if(counter === 20000) {
-//         break;
-//       }
-//     }
-//       setTimeout(() => {
-//         snake.style.gridArea = `${positionArray[0][0]} / ${positionArray[0][1] + 1}`;
-//         if(positionArray[0][1] < 19) {
-//           positionArray[0][1] += 1;
-//           console.log("positionArray " + positionArray[0][1]);
-//         } else {
-//           gameStart = false;
-//         }
-//       },200);
-    
-//   } else if(e.code === "KeyA") {
-//     console.log("A ");
-//     lastKey = "KeyA";
-//   } else if(e.code === "KeyS") {
-//     console.log("S ");
-//     lastKey = "KeyS";
-//   } else if(e.code === "KeyW") {
-//     console.log("W ");
-//     lastKey = "KeyW";
-//   }
