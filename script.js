@@ -1,6 +1,6 @@
 let gameStart = true;
 let gridArray;
-let snakeArray = [[1, 1]];
+let snakeArray = [];
 let directionArray = [[1, 1]];
 let counter = 0; //counter to stop the while loop in case I miss up
 let lastKey = ""; // last key pressed on keyboard
@@ -11,7 +11,7 @@ const food = document.querySelector(".food");
 const grid = document.querySelector(".grid");
 
 const growSnake = (positionX, positionY) => {
-  snakeArray.push([positionX, positionY]);
+  // snakeArray.push([positionX, positionY]);
   console.table("🚀 ~ growSnake ~ snakeArray:", snakeArray)
   const growth = document.createElement("div");
   growth.setAttribute('class', 'snake-default');
@@ -60,6 +60,7 @@ const move = (key) => {
       } else if(key === "KeyW") {
         directionArray[0][0] -= 1;
       }
+      snakeArray.push([directionArray[0][1], directionArray[0][0]]);
       snake.style.gridArea = `${directionArray[0][0]} / ${directionArray[0][1]}`;
       if(directionArray[0][0] === foodx && directionArray[0][1] === foody) {
         console.log("🚀 ~ setTimeout ~ directionArray[0][1]:", directionArray[0][1])
@@ -71,6 +72,6 @@ const move = (key) => {
         generateFood();
       }
       move(key);
-  }, 150);
+  }, 200);
 }
 };
