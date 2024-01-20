@@ -18,7 +18,7 @@ const growSnake = (foodx, foody) => {
     genSnake.className = "snake-default";
     grid.append(genSnake);
 };
-growSnake(1, 1);
+growSnake();
 
 const creatGridArray = () => {
   let arr = [];
