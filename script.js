@@ -1,6 +1,6 @@
 let gameStart = true;
 let gridArray;
-let snakeArray = [];
+let snakeArray = [{x:1, y:1}];
 let directionArray = [[1, 1]];
 let turnArray = [];
 let counter = 0;
@@ -11,12 +11,20 @@ const snake = document.querySelector("#snake");
 const food = document.querySelector(".food");
 const grid = document.querySelector(".grid");
 
-const growSnake = (positionX, positionY) => {
+const growSnake = () => {
   snakeArray.push([positionX, positionY]);
   snakeArray.forEach((value) => {
     let growth = document.createElement("div");
     growth.setAttribute('class', 'snake-default');
-    growth.style.gridArea = `${positionX} / ${positionY}`;
+    if(lastKey === "KeyD") {
+      growth.style.gridArea = `${directionArray[0][0]} / ${directionArray[0][1] - 1}`;
+    } else if(lastKey === "KeyS") {
+      growth.style.gridArea = `${directionArray[0][0] - 1} / ${directionArray[0][1]}`;
+    } else if(lastKey === "KeyA") {
+      growth.style.gridArea = `${directionArray[0][0]} / ${directionArray[0][1] + 1}`;
+    } else if(lastKey === "KeyW") {
+      growth.style.gridArea = `${directionArray[0][0] + 1} / ${directionArray[0][1]}`;
+    }
     grid.append(growth);
   });
 };
