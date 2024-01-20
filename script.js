@@ -1,33 +1,24 @@
 let gameStart = true;
 let gridArray;
-let snakeArray = [{x:1, y:1}];
+let snakeArray = [{x: 1, y: 1}];
 let directionArray = [[1, 1]];
 let turnArray = [];
 let counter = 0;
 let lastKey = "";
 let foodx;
 let foody;
-const snake = document.querySelector("#snake");
+// const snake = document.querySelector("#snake");
 const food = document.querySelector(".food");
 const grid = document.querySelector(".grid");
 
-const growSnake = () => {
-  snakeArray.push([positionX, positionY]);
-  snakeArray.forEach((value) => {
-    let growth = document.createElement("div");
-    growth.setAttribute('class', 'snake-default');
-    if(lastKey === "KeyD") {
-      growth.style.gridArea = `${directionArray[0][0]} / ${directionArray[0][1] - 1}`;
-    } else if(lastKey === "KeyS") {
-      growth.style.gridArea = `${directionArray[0][0] - 1} / ${directionArray[0][1]}`;
-    } else if(lastKey === "KeyA") {
-      growth.style.gridArea = `${directionArray[0][0]} / ${directionArray[0][1] + 1}`;
-    } else if(lastKey === "KeyW") {
-      growth.style.gridArea = `${directionArray[0][0] + 1} / ${directionArray[0][1]}`;
-    }
-    grid.append(growth);
-  });
+const growSnake = (foodx, foody) => {
+  console.log("🚀 ~ growSnake ~ snakeArray:", snakeArray)
+    const genSnake = document.createElement("div");
+    genSnake.style.gridArea = `${snakeArray[snakeArray.length -1].x} / ${snakeArray[snakeArray.length -1].y}`;
+    genSnake.className = "snake-default";
+    grid.append(genSnake);
 };
+growSnake(1, 1);
 
 const creatGridArray = () => {
   let arr = [];
@@ -52,7 +43,6 @@ generateFood();
 
 document.addEventListener("keydown", (key) => {
   lastKey = key.code;
-  // gridArray[directionArray[0][0] -1][directionArray[0][1] -1] = lastKey;
   move(key.code);
 });
 
@@ -63,17 +53,38 @@ const move = (key) => {
   if(gameStart === true && key === lastKey) {
     setTimeout(() => {
       if(key === "KeyD") {
-        directionArray[0][1] += 1;
+        for(let i = 0; i < snakeArray.length; i++) {
+          snakeArray[i].y += 1;
+        }
       } else if(key === "KeyA") {
-        directionArray[0][1] -= 1;
+        for(let i = 0; i < snakeArray.length; i++) {
+          snakeArray[i].y -= 1;
+        }
       } else if(key === "KeyS") {
-        directionArray[0][0] += 1;
+        for(let i = 0; i < snakeArray.length; i++) {
+          snakeArray[i].x += 1;
+        }
       } else if(key === "KeyW") {
-        directionArray[0][0] -= 1;
+        for(let i = 0; i < snakeArray.length; i++) {
+          snakeArray[i].x -= 1;
+        }
       }
-      snake.style.gridArea = `${directionArray[0][0]} / ${directionArray[0][1]}`;
-      // console.table(gridArray);
-      if(directionArray[0][0] === foodx && directionArray[0][1] === foody) {
+      const snakeAll = document.querySelectorAll(".snake-default");
+      for(let i = 0; i < snakeArray.length; i++) {
+        snakeAll[i].style.gridArea = `${snakeArray[i].x} / ${snakeArray[i].y}`
+      }
+      if(snakeArray[0].x === foodx && snakeArray[0].y === foody) {
+         let tailX = snakeArray[snakeArray.length - 1].x;
+         let tailY = snakeArray[snakeArray.length - 1].y;
+        if(key === "KeyD") {
+          snakeArray.push({x: tailX, y: tailY - 1});
+        } else if(key === "KeyA") {
+          snakeArray.push({x: tailX, y: tailY + 1});
+        } else if(key === "KeyS") {
+          snakeArray.push({x: tailX - 1, y: tailY});
+        } else if(key === "KeyW") {
+          snakeArray.push({x: tailX + 1, y: tailY});
+        } 
         food.style.display = "none";
         growSnake(foodx, foody);
         generateFood();
