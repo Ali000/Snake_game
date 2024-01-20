@@ -12,10 +12,13 @@ const food = document.querySelector(".food");
 const grid = document.querySelector(".grid");
 
 const growSnake = (positionX, positionY) => {
-  const growth = document.createElement("div");
-  growth.setAttribute('class', 'snake-default');
-  growth.style.gridArea = `${positionX} / ${positionY}`;
-  grid.append(growth);
+  snakeArray.push([positionX, positionY]);
+  snakeArray.forEach((value) => {
+    let growth = document.createElement("div");
+    growth.setAttribute('class', 'snake-default');
+    growth.style.gridArea = `${positionX} / ${positionY}`;
+    grid.append(growth);
+  });
 };
 
 const creatGridArray = () => {
@@ -42,22 +45,7 @@ generateFood();
 document.addEventListener("keydown", (key) => {
   lastKey = key.code;
   // gridArray[directionArray[0][0] -1][directionArray[0][1] -1] = lastKey;
-  setInterval(() => {
-    if(lastKey === "KeyD") {
-      directionArray[0][1] += 1;
-    } else if(lastKey === "KeyA") {
-      directionArray[0][1] -= 1;
-    } else if(lastKey === "KeyS") {
-      directionArray[0][0] += 1;
-    } else if(lastKey === "KeyW") {
-      directionArray[0][0] -= 1;
-    }
-    if((directionArray[0][0] > 19 || directionArray [0][1] > 19) || directionArray[0][0] < 1 || directionArray[0][1] < 1) {
-      clearInterval();
-    }
-    snake.style.gridArea = `${directionArray[0][0]} / ${directionArray[0][1]}`;
-  }, 200);
-  // move(lastKey);
+  move(key.code);
 });
 
 const move = (key) => {
@@ -75,7 +63,8 @@ const move = (key) => {
       } else if(key === "KeyW") {
         directionArray[0][0] -= 1;
       }
-      console.table(gridArray);
+      snake.style.gridArea = `${directionArray[0][0]} / ${directionArray[0][1]}`;
+      // console.table(gridArray);
       if(directionArray[0][0] === foodx && directionArray[0][1] === foody) {
         food.style.display = "none";
         growSnake(foodx, foody);
@@ -85,3 +74,18 @@ const move = (key) => {
     }, 200);
   }
 };
+
+// setInterval(() => {
+  //   if(lastKey === "KeyD") {
+  //     directionArray[0][1] += 1;
+  //   } else if(lastKey === "KeyA") {
+  //     directionArray[0][1] -= 1;
+  //   } else if(lastKey === "KeyS") {
+  //     directionArray[0][0] += 1;
+  //   } else if(lastKey === "KeyW") {
+  //     directionArray[0][0] -= 1;
+  //   }
+  //   if((directionArray[0][0] > 19 || directionArray [0][1] > 19) || directionArray[0][0] < 1 || directionArray[0][1] < 1) {
+  //     clearInterval();
+  //   }
+  // }, 200);
