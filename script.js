@@ -2,8 +2,9 @@ let gameStart = true;
 let gridArray;
 let snakeArray = [];
 let directionArray = [[1, 1]];
-let counter = 0; //counter to stop the while loop in case I miss up
-let lastKey = ""; // last key pressed on keyboard
+let turnArray = [];
+let counter = 0;
+let lastKey = "";
 let foodx;
 let foody;
 const snake = document.querySelector("#snake");
@@ -11,8 +12,6 @@ const food = document.querySelector(".food");
 const grid = document.querySelector(".grid");
 
 const growSnake = (positionX, positionY) => {
-  // snakeArray.push([positionX, positionY]);
-  console.table("🚀 ~ growSnake ~ snakeArray:", snakeArray)
   const growth = document.createElement("div");
   growth.setAttribute('class', 'snake-default');
   growth.style.gridArea = `${positionX} / ${positionY}`;
@@ -42,7 +41,23 @@ generateFood();
 
 document.addEventListener("keydown", (key) => {
   lastKey = key.code;
-  move(lastKey);
+  // gridArray[directionArray[0][0] -1][directionArray[0][1] -1] = lastKey;
+  setInterval(() => {
+    if(lastKey === "KeyD") {
+      directionArray[0][1] += 1;
+    } else if(lastKey === "KeyA") {
+      directionArray[0][1] -= 1;
+    } else if(lastKey === "KeyS") {
+      directionArray[0][0] += 1;
+    } else if(lastKey === "KeyW") {
+      directionArray[0][0] -= 1;
+    }
+    if((directionArray[0][0] > 19 || directionArray [0][1] > 19) || directionArray[0][0] < 1 || directionArray[0][1] < 1) {
+      clearInterval();
+    }
+    snake.style.gridArea = `${directionArray[0][0]} / ${directionArray[0][1]}`;
+  }, 200);
+  // move(lastKey);
 });
 
 const move = (key) => {
@@ -60,18 +75,13 @@ const move = (key) => {
       } else if(key === "KeyW") {
         directionArray[0][0] -= 1;
       }
-      snakeArray.push([directionArray[0][1], directionArray[0][0]]);
-      snake.style.gridArea = `${directionArray[0][0]} / ${directionArray[0][1]}`;
+      console.table(gridArray);
       if(directionArray[0][0] === foodx && directionArray[0][1] === foody) {
-        console.log("🚀 ~ setTimeout ~ directionArray[0][1]:", directionArray[0][1])
-        console.log("🚀 ~ setTimeout ~ directionArray:[0][0]", directionArray[0][0])
-        console.log("🚀 ~ setTimeout ~ foody:", foody)
-        console.log("🚀 ~ setTimeout ~ foodx:", foodx)
         food.style.display = "none";
         growSnake(foodx, foody);
         generateFood();
       }
       move(key);
-  }, 200);
-}
+    }, 200);
+  }
 };
