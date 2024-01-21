@@ -7,9 +7,9 @@ snakeSegments = [{x: 9, y: 8}, {x: 8, y: 8}, {x: 7, y: 8}, {x: 6, y: 8}];
 // snakeSegments.pop();
 // console.log("🚀 ~ snakeSegments pop:", snakeSegments)
 
-//pop then unshift
+//pop then shift
 console.log("🚀 ~ snakeSegments:", snakeSegments)
 snakeSegments.pop();
 console.log("🚀 ~ snakeSegments pop:", snakeSegments)
-snakeSegments.unshift();
-console.log("🚀 ~ snakeSegments unshift:", snakeSegments)
+snakeSegments.shift();
+console.log("🚀 ~ snakeSegments shift:", snakeSegments)

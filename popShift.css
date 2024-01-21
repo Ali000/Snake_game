@@ -1,0 +1,38 @@
+body {
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  display: inline-grid;
+  grid-template-columns: repeat(20, 25px [col-start]);
+  grid-template-rows: repeat(20, 25px [row-start]);
+  border: 3px solid white;
+}
+
+.start-position {
+  grid-area: 1 / 1;
+}
+
+.snake-default {
+  justify-self: center;
+  align-self: center;
+  background-color: lightgreen;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px black solid;
+}
+
+.food {
+  justify-self: center;
+  align-self: center;
+  background-color: red;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  display: none;
+}
