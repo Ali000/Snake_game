@@ -42,7 +42,7 @@ const move = () => {
 }
 
 
-function start(){
+function start() {
 intervalID = setInterval(move, 1000);
 }
 
