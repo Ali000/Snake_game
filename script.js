@@ -12,11 +12,11 @@ const food = document.querySelector(".food");
 const grid = document.querySelector(".grid");
 
 const selfHit = () => {
-  // snakeArray.forEach((segment) => {
-  //   if(directionArray[0][0] === segment.x && directionArray[0][1] === segment.y) {
-  //     gameStart = false;
-  //   }
-  // });
+  for(let i = 0; i < snakeArray.length -1; i++) {
+    if((snakeArray.length > 1) && snakeArray[snakeArray.length -1].x === snakeArray[i].x && snakeArray[snakeArray.length -1].y === snakeArray[i].y) {
+      gameStart = false;
+    }
+  }
 }
 
 const growSnake = (x, y) => {
