@@ -1,6 +1,6 @@
-let snakeSegments = [{x: 9, y: 8}]; //snake size
+let snakeSegments = [{x: 1, y: 8}]; //snake size
 let directionArray = [[1, 1]]; //where snake is headed
-foodX = 10;
+foodX = 5;
 foodY = 8;
 let intervalID;
 
@@ -14,25 +14,33 @@ const createSnake = () => {
     grid.append(snakeDiv);
   }
 }
+createSnake();
 
 const move = () => {
-
-    snakeSegments.unshift(snakeSegments[snakeSegments.length -1]);
-    snakeSegments.pop();
-    for(let i = 0; i < snakeSegments.length; i++) {
-      snakeSegments[0].x += 1;
-    }
+  const snakeBody = document.querySelectorAll(".snake-default");
+  snakeSegments.unshift(snakeSegments[snakeSegments.length -1]);
+  snakeSegments.pop();
+  for(let i = 0; i < snakeSegments.length; i++) {
+    snakeSegments[i].x += 1;
+  }
+  if(snakeSegments[0].x === foodX && snakeSegments[0].y === foodY) {
+    console.log("🚀 ~ move ~ snakeSegments[0].x:", snakeSegments[0].x)
+    console.log("🚀 ~ move ~ snakeSegments[0].y:", snakeSegments[0].y)
+    console.log("🚀 ~ move ~ foodX:", foodX)
+    console.log("🚀 ~ move ~ foodY:", foodY)
+    snakeSegments.push({x: foodX -1, y: foodY});
     createSnake();
-    console.log(snakeSegments);
-    clearInterval();
-
+  }
+  const gridSnake = document.querySelectorAll(".snake-default")
+  if(gridSnake.length > 1) {
+    gridSnake[0].remove();
+  }
+  console.log(snakeSegments);
 }
 
 
 function start(){
-
 intervalID = setInterval(move, 2000);
-
 }
 
 // Function to stop setInterval call
