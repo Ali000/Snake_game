@@ -47,7 +47,7 @@ document.addEventListener("keydown", (key) => {
 });
 
 const move = (key) => {
-  if((directionArray[0][0] > 19 || directionArray [0][1] > 19) || directionArray[0][0] < 1 || directionArray[0][1] < 1) {
+  if((snakeArray[0].x > 19 || snakeArray[0].y > 19) || snakeArray[0].x < 1 || snakeArray[0].y < 1) {
     gameStart = false;
   }
   if(gameStart === true && key === lastKey) {
@@ -104,6 +104,7 @@ const move = (key) => {
   //   } else if(lastKey === "KeyW") {
   //     directionArray[0][0] -= 1;
   //   }
+  
   //   if((directionArray[0][0] > 19 || directionArray [0][1] > 19) || directionArray[0][0] < 1 || directionArray[0][1] < 1) {
   //     clearInterval();
   //   }
