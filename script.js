@@ -5,20 +5,39 @@ let directionArray = [[1, 1]];
 let turnArray = [];
 let counter = 0;
 let lastKey = "";
+let ateFood = false;
 let foodx;
 let foody;
-// const snake = document.querySelector("#snake");
 const food = document.querySelector(".food");
 const grid = document.querySelector(".grid");
 
-const growSnake = (foodx, foody) => {
-  console.log("🚀 ~ growSnake ~ snakeArray:", snakeArray)
-    const genSnake = document.createElement("div");
-    genSnake.style.gridArea = `${snakeArray[snakeArray.length -1].x} / ${snakeArray[snakeArray.length -1].y}`;
-    genSnake.className = "snake-default";
-    grid.append(genSnake);
+const selfHit = () => {
+  // snakeArray.forEach((segment) => {
+  //   if(directionArray[0][0] === segment.x && directionArray[0][1] === segment.y) {
+  //     gameStart = false;
+  //   }
+  // });
+}
+
+const growSnake = (x, y) => {
+  const newSegment = document.createElement("div");
+  snakeArray.push({x: x, y: y});
+  for(let i = 0; i < snakeArray.length; i++) {
+    newSegment.className = "snake-default";
+    newSegment.style.gridArea = `${x} / ${y}`;
+    grid.append(newSegment);
+  }
+  if(ateFood === true) {
+    ateFood = false;
+  } else {
+    snakeArray.shift();
+    const snakeOnGrid = document.querySelectorAll(".snake-default");
+    if(snakeOnGrid.length > 1) {
+      snakeOnGrid[0].remove();
+    }
+  }
 };
-growSnake();
+growSnake(directionArray[0][0], directionArray[0][1]);
 
 const creatGridArray = () => {
   let arr = [];
@@ -47,65 +66,30 @@ document.addEventListener("keydown", (key) => {
 });
 
 const move = (key) => {
-  if((snakeArray[0].x > 19 || snakeArray[0].y > 19) || snakeArray[0].x < 1 || snakeArray[0].y < 1) {
+  if((directionArray[0][0] > 19 || directionArray[0][1] > 19) || directionArray[0][0] < 1 || directionArray[0][1] < 1) {
     gameStart = false;
   }
   if(gameStart === true && key === lastKey) {
     setTimeout(() => {
       if(key === "KeyD") {
-        for(let i = 0; i < snakeArray.length; i++) {
-          snakeArray[i].y += 1;
-        }
+        directionArray[0][1] += 1;
+        growSnake(directionArray[0][0], directionArray[0][1]);
       } else if(key === "KeyA") {
-        for(let i = 0; i < snakeArray.length; i++) {
-          snakeArray[i].y -= 1;
-        }
+        directionArray[0][1] -= 1;
+        growSnake(directionArray[0][0], directionArray[0][1]);
       } else if(key === "KeyS") {
-        for(let i = 0; i < snakeArray.length; i++) {
-          snakeArray[i].x += 1;
-        }
+        directionArray[0][0] += 1;
+        growSnake(directionArray[0][0], directionArray[0][1]);
       } else if(key === "KeyW") {
-        for(let i = 0; i < snakeArray.length; i++) {
-          snakeArray[i].x -= 1;
-        }
+        directionArray[0][0] -= 1;
+        growSnake(directionArray[0][0], directionArray[0][1]);
       }
-      const snakeAll = document.querySelectorAll(".snake-default");
-      for(let i = 0; i < snakeArray.length; i++) {
-        snakeAll[i].style.gridArea = `${snakeArray[i].x} / ${snakeArray[i].y}`
-      }
-      if(snakeArray[0].x === foodx && snakeArray[0].y === foody) {
-         let tailX = snakeArray[snakeArray.length - 1].x;
-         let tailY = snakeArray[snakeArray.length - 1].y;
-        if(key === "KeyD") {
-          snakeArray.push({x: tailX, y: tailY - 1});
-        } else if(key === "KeyA") {
-          snakeArray.push({x: tailX, y: tailY + 1});
-        } else if(key === "KeyS") {
-          snakeArray.push({x: tailX - 1, y: tailY});
-        } else if(key === "KeyW") {
-          snakeArray.push({x: tailX + 1, y: tailY});
-        } 
-        food.style.display = "none";
-        growSnake(foodx, foody);
+      if(directionArray[0][0] === foodx && directionArray[0][1] === foody) {
+        ateFood = true;
         generateFood();
       }
+      selfHit();
       move(key);
     }, 200);
   }
-};
-
-// setInterval(() => {
-  //   if(lastKey === "KeyD") {
-  //     directionArray[0][1] += 1;
-  //   } else if(lastKey === "KeyA") {
-  //     directionArray[0][1] -= 1;
-  //   } else if(lastKey === "KeyS") {
-  //     directionArray[0][0] += 1;
-  //   } else if(lastKey === "KeyW") {
-  //     directionArray[0][0] -= 1;
-  //   }
-  
-  //   if((directionArray[0][0] > 19 || directionArray [0][1] > 19) || directionArray[0][0] < 1 || directionArray[0][1] < 1) {
-  //     clearInterval();
-  //   }
-  // }, 200);
+}
