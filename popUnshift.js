@@ -6,6 +6,10 @@ let intervalID;
 
 const grid = document.querySelector('.grid');
 
+const growSnake = () => {
+  console.log("Snake should grow by 1");
+};
+
 const createSnake = () => {
   for(let i = 0; i < snakeSegments.length; i++) {
     const snakeDiv = document.createElement("div");
@@ -18,18 +22,17 @@ createSnake();
 
 const move = () => {
   const snakeBody = document.querySelectorAll(".snake-default");
-  snakeSegments.unshift(snakeSegments[snakeSegments.length -1]);
-  snakeSegments.pop();
-  for(let i = 0; i < snakeSegments.length; i++) {
-    snakeSegments[i].x += 1;
-  }
+  // snakeSegments.unshift(snakeSegments[snakeSegments.length -1]);
+  // snakeSegments.pop();
+
+  snakeSegments[0].x += 1;
+  snakeBody[0].style.gridArea = `${snakeSegments[0].x} / ${snakeSegments[0].y}`;
   if(snakeSegments[0].x === foodX && snakeSegments[0].y === foodY) {
     console.log("🚀 ~ move ~ snakeSegments[0].x:", snakeSegments[0].x)
     console.log("🚀 ~ move ~ snakeSegments[0].y:", snakeSegments[0].y)
     console.log("🚀 ~ move ~ foodX:", foodX)
     console.log("🚀 ~ move ~ foodY:", foodY)
-    snakeSegments.push({x: foodX -1, y: foodY});
-    createSnake();
+    growSnake();
   }
   const gridSnake = document.querySelectorAll(".snake-default")
   if(gridSnake.length > 1) {
@@ -40,11 +43,11 @@ const move = () => {
 
 
 function start(){
-intervalID = setInterval(move, 2000);
+intervalID = setInterval(move, 1000);
 }
 
 // Function to stop setInterval call
-function stop(){
+function stop() {
   clearInterval(intervalID);
 }
 
