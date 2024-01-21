@@ -28,3 +28,4 @@ https://stackoverflow.com/questions/11488014/asynchronous-process-inside-a-javas
 https://www.freecodecamp.org/news/recursion-in-javascript/ \
 https://medium.com/codex/how-to-get-the-last-element-in-an-array-in-javascript-c106f2f4b830 \
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift \
+https://community.zapier.com/featured-articles-65/add-remove-items-in-an-array-with-push-pop-shift-unshift-14074 \

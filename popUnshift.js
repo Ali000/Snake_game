@@ -1,6 +1,15 @@
-snakeSegments = [{x: 9, y: 8}, {x: 8, y: 8}, {x: 7, y: 8}];
+snakeSegments = [{x: 9, y: 8}, {x: 8, y: 8}, {x: 7, y: 8}, {x: 6, y: 8}];
+
+// unshift first then pop
+// console.log("🚀 ~ snakeSegments:", snakeSegments)
+// snakeSegments.unshift(snakeSegments[snakeSegments.length - 1]);
+// console.log("🚀 ~ snakeSegments unshift:", snakeSegments)
+// snakeSegments.pop();
+// console.log("🚀 ~ snakeSegments pop:", snakeSegments)
+
+//pop then unshift
 console.log("🚀 ~ snakeSegments:", snakeSegments)
-snakeSegments.unshift(snakeSegments[snakeSegments.length - 1]);
-console.log("🚀 ~ snakeSegments unshift:", snakeSegments)
 snakeSegments.pop();
 console.log("🚀 ~ snakeSegments pop:", snakeSegments)
+snakeSegments.unshift();
+console.log("🚀 ~ snakeSegments unshift:", snakeSegments)
