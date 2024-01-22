@@ -8,6 +8,7 @@ let lastKey = "";
 let ateFood = false;
 let foodx;
 let foody;
+const pause = document.querySelector("button");
 const food = document.querySelector(".food");
 const grid = document.querySelector(".grid");
 
@@ -63,6 +64,14 @@ generateFood();
 document.addEventListener("keydown", (key) => {
   lastKey = key.code;
   move(key.code);
+});
+
+pause.addEventListener("click", () => {
+  if(gameStart) {
+    gameStart = false;
+  } else {
+    gameStart = true;
+  }
 });
 
 const move = (key) => {
