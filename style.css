@@ -6,6 +6,52 @@ body {
   align-items: center;
 }
 
+ul {
+  list-style-type: none;
+}
+
+.snakeImg {
+  width : 60%;
+}
+
+.wasd {
+  width: 40%;
+}
+
+.li-wasd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.instructions {
+  width: 50%;
+  display: flex;
+  padding-top: 100px;
+  background-image: url("jungle.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px;
+  color: black;
+}
+
+.pause {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#play-button {
+  /* display: none; */
+}
+
 .grid {
   display: inline-grid;
   grid-template-columns: repeat(20, 25px [col-start]);
