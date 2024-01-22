@@ -8,7 +8,9 @@ let lastKey = "";
 let ateFood = false;
 let foodx;
 let foody;
-const pause = document.querySelector("button");
+const pausePlayButton = document.querySelector("#pause-play")
+const pause = document.querySelector("#pause-game");
+const play = document.querySelector("#play-game");
 const food = document.querySelector(".food");
 const grid = document.querySelector(".grid");
 
@@ -66,13 +68,20 @@ document.addEventListener("keydown", (key) => {
   move(key.code);
 });
 
-pause.addEventListener("click", () => {
+const playPause = () => {
+  console.log("pause/play");
   if(gameStart) {
     gameStart = false;
+    play.style.display = "block";
+    pause.style.display = "none";
   } else {
     gameStart = true;
+    play.style.display = "none";
+    pause.style.display = "block";
   }
-});
+}
+
+pausePlayButton.addEventListener("click", playPause);
 
 const move = (key) => {
   if((directionArray[0][0] > 19 || directionArray[0][1] > 19) || directionArray[0][0] < 1 || directionArray[0][1] < 1) {

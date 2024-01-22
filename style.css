@@ -1,5 +1,5 @@
 body {
-  background-color: #333;
+  background-color: #237C34;
   color: white;
   display: flex;
   justify-content: space-evenly;
@@ -8,6 +8,18 @@ body {
 
 ul {
   list-style-type: none;
+}
+
+#play-game {
+  display: none;
+}
+
+/* rgba(28, 190, 11, 0.58) */
+
+.instructions-body {
+  background-image: url("jungle.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .snakeImg {
@@ -32,12 +44,12 @@ ul {
 }
 
 .instructions {
+  margin-top: 100px;
   width: 50%;
   display: flex;
   padding-top: 100px;
-  background-image: url("jungle.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: rgba(28, 190, 11, 0.20);
+  border: 10px solid rgba(28, 190, 11, 1);
   padding: 20px;
   color: black;
 }
@@ -48,15 +60,20 @@ ul {
   justify-content: space-between;
 }
 
-#play-button {
-  /* display: none; */
+.game-body {
+  background-image: url("jungle.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .grid {
   display: inline-grid;
   grid-template-columns: repeat(20, 25px [col-start]);
   grid-template-rows: repeat(20, 25px [row-start]);
-  border: 3px solid white;
+  border: 20px solid white;
+  background-image: url("jungle.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .start-position {
@@ -67,8 +84,8 @@ ul {
   justify-self: center;
   align-self: center;
   background-color: lightgreen;
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 90%;
   border-radius: 50%;
   border: 3px black solid;
 }
@@ -77,8 +94,9 @@ ul {
   justify-self: center;
   align-self: center;
   background-color: red;
-  width: 50%;
-  height: 50%;
+  width: 60%;
+  height: 60%;
   border-radius: 50%;
+  border: 1px black solid;
   display: none;
 }
