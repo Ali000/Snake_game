@@ -16,6 +16,66 @@ ul {
   display: none;
 }
 
+#pause-play {
+  background-color: rgba(28, 190, 11, .5);
+  border-radius: 5%;
+}
+
+.restart-msg {
+  background-color: rgba(28, 190, 11, .5);
+  grid-area: 7 / 7 / 12 / 15;
+  border: rgba(28, 190, 11, 1) solid 5px;
+  border-radius: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  display: none;
+  z-index: 1;
+}
+
+.restart-msg h2 {
+  text-align: center;
+}
+
+.restart-btn {
+  font-family: 'Luckiest Guy', cursive;
+  width: 130px;
+  height: 50px;
+  border-radius: 30%;
+  background-color: rgba(28, 190, 11, 1);
+  font-size: 24px;
+}
+
+.score-label {
+  display: inline;
+}
+
+.score, .high-score {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(28, 190, 11, 0.5);
+  padding: 0 5px;
+  border-radius: 5%;
+}
+
+.score-board {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 20%;
+}
+
+.return-instructions {
+  font-family: 'Luckiest Guy', cursive;
+  width: 300.64px;
+  height: 50px;
+  border-radius: 30%;
+  background-color: rgba(28, 190, 11, 1);
+  font-size: 20px;
+  margin-top: 15px;
+}
+
 .start-button {
   font-family: 'Luckiest Guy', cursive;
   width: 150px;
@@ -31,12 +91,12 @@ ul {
 }
 
 .instructions-body {
-  background-image: url("snake_night2.jpg");
-  /* background-image: url("jungle.jpg"); */
+  /* background-image: url("snake_night2.jpg"); */
+  background-image: url("jungle.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   flex-direction: column;
-  filter: grayscale(100%);
+  /* filter: grayscale(100%); */
 }
 
 .snakeImg {
@@ -87,7 +147,7 @@ ul {
   display: inline-grid;
   grid-template-columns: repeat(20, 25px [col-start]);
   grid-template-rows: repeat(20, 25px [row-start]);
-  border: 20px solid white;
+  border: 20px solid rgba(28, 190, 11, .7);;
   background-image: url("jungle.jpg");
   background-repeat: no-repeat;
   background-size: cover;

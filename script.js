@@ -8,16 +8,41 @@ let lastKey = "";
 let ateFood = false;
 let foodx;
 let foody;
+let score = 0;
+let highScore = 0;
 const pausePlayButton = document.querySelector("#pause-play")
 const pause = document.querySelector("#pause-game");
 const play = document.querySelector("#play-game");
 const food = document.querySelector(".food");
 const grid = document.querySelector(".grid");
+const restartMsg = document.querySelector(".restart-msg");
+const restartBtn = document.querySelector(".restart-btn");
+const highScoreCount = document.querySelector("#high-score-count");
+const scoreCount = document.querySelector("#score-count");
+
+const restartGame = () => {
+  const snakeOnGrid = document.querySelectorAll(".snake-default");
+  for(let i = 0; i < snakeArray.length; i++) {
+    snakeOnGrid[i].remove();
+  }
+  score = 0;
+  snakeArray = [];
+  directionArray = [[1, 1]];
+  growSnake(directionArray[0][0], directionArray[0][1]);
+  food.style.display = "none";
+  restartMsg.style.display = "none";
+  scoreCount.innerText = score;
+  generateFood();
+  gameStart = true;
+}
+
+restartBtn.addEventListener("click", restartGame);
 
 const selfHit = () => {
   for(let i = 0; i < snakeArray.length -1; i++) {
     if((snakeArray.length > 1) && snakeArray[snakeArray.length -1].x === snakeArray[i].x && snakeArray[snakeArray.length -1].y === snakeArray[i].y) {
       gameStart = false;
+      restartMsg.style.display = "flex";
     }
   }
 }
@@ -86,6 +111,7 @@ pausePlayButton.addEventListener("click", playPause);
 const move = (key) => {
   if((directionArray[0][0] > 19 || directionArray[0][1] > 19) || directionArray[0][0] < 1 || directionArray[0][1] < 1) {
     gameStart = false;
+    restartMsg.style.display = "flex";
   }
   if(gameStart === true && key === lastKey) {
     setTimeout(() => {
@@ -104,6 +130,10 @@ const move = (key) => {
       }
       if(directionArray[0][0] === foodx && directionArray[0][1] === foody) {
         ateFood = true;
+        score += 1;
+        highScore = score > highScore ? score : highScore;
+        highScoreCount.innerText = highScore;
+        scoreCount.innerText = score;
         generateFood();
       }
       selfHit();
