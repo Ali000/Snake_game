@@ -7,7 +7,7 @@
   * Live Link
 * Game Flow
 * How to Play
-* Code Snippte
+* Code Snippet
    * Grow Snake Logic
    * Recursion Logic
 * Learned Outcomes
