@@ -1,21 +1,52 @@
-# Snake_game
-Good old snake game, eat, grow & don't hit your tail.
+<!-- <details>
+<summary>Table of Contents</summary>
 
-## Description
-Snake game, the player would respawn randomly and have to eat food to grow, the game ends if the player hits a wall or the snake's body. Will have high score record.
+</details> -->
 
-![snake](https://github.com/Ali000/Snake_game/assets/24501038/f774898a-b962-4f01-a0f1-e1f846e2a80f)
+# About the project
 
+### Snake Game
+
+![Alt text](snakeGame.png)
+
+This project was built as part of the **General Assembly's Software Engineering Immersive** course, the project is built without the use of any libraries or frameworks.<br>
+The purpose of the project is to practice DOM manipulation with javascript.
+
+### Built with
+* HTML
+* CSS
+* JavaScript
+
+---
+
+# Game Flow
+The snake would respawn on the grid and the goal is to navigate the area for food and not hit the wall or the body of the snake.<br>
+The snake would start as a head only and would grow in length when food is eaten.<br>
+
+---
+
+# How to play
+* W, A, S, & D keys are used to control the snake.
+* Initially the snake will be still, till the player moves it.
+* A pause/play buttons are available. After pausing the player will have to use WASD to move the snake again.
+* score & high score are tracked.
+* If the player loses at the game they will be prompted to restart.
+* The player can navigate between the instructions page & the game page.
+
+![Alt text](snakeInstructions.png)
+
+---
 
 ### Pseudocode
-1- player respawn as a snake (tiny & short).\
-2- spawn food randomly.\
-3- player should start the game by a button.\
+1- player respawn as a snake with one body segment.\
+2- food respawns randomly.\
+3- Snake will be still, untill the player uses the movemnet keys.\
 4- player should move around with the intention to collect as much as possible without crashing into the walls or the snake's body.\
-5- increment score for each food collected & increase length.\
-6- ability to restart if player loses.
+5- When the players reachs food, the body will increase in length \
+6- The game continue to run till a wall is hit or the snake's body.
+7- player may pause the game.
 
-### sources
+# sources
 https://www.freecodecamp.org/news/javascript-2d-arrays/ \
 https://css-tricks.com/snippets/css/complete-guide-grid/ \
 https://www.youtube.com/watch?v=EiNiSFIPIQE&t=641s&ab_channel=SlayingTheDragon \
