@@ -80,7 +80,7 @@ const growSnake = (x, y) => {
 };
 ```
 
-This code will be updated constanlty, with every movement the body segment is shown and then removed, giving the illusion of motion around the grid. When food is eaten the one segment of the body will not be removed, which will increase the length of the snake.
+This code will be updated constanlty, with every movement the body segment is shown and then removed, giving the illusion of motion around the grid. When food is eaten one segment of the body will not be removed, which will increase the length of the snake.
 
 ---
 
