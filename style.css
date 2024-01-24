@@ -21,6 +21,10 @@ ul {
   border-radius: 5%;
 }
 
+.dark-mode {
+  align-self:flex-end;
+}
+
 .restart-msg {
   background-color: rgba(28, 190, 11, .5);
   grid-area: 7 / 7 / 12 / 15;
@@ -91,12 +95,10 @@ ul {
 }
 
 .instructions-body {
-  /* background-image: url("snake_night2.jpg"); */
   background-image: url("jungle.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   flex-direction: column;
-  /* filter: grayscale(100%); */
 }
 
 .snakeImg {
@@ -176,4 +178,9 @@ ul {
   border-radius: 50%;
   border: 1px black solid;
   display: none;
+}
+
+.dark-mode {
+  filter: grayscale(1);
+  background-image: url("snake_night2.jpg");
 }

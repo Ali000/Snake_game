@@ -29,6 +29,16 @@
       </ul>
     </div>
   </div>
+  <div class="dark-mode"><button id="dark-mode-btn">Dark Mode</button></div>
 </body>
+
+<script>
+  const darkModeBtn = document.querySelector("#dark-mode-btn");
+  const theInstructionsBody = document.querySelector(".instructions-body");
+
+  darkModeBtn.addEventListener("click", () => {
+    theInstructionsBody.classList.toggle("dark-mode");
+  });
+</script>
 
 </html>

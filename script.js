@@ -17,6 +17,7 @@ const restartBtn = document.querySelector(".restart-btn");
 const highScoreCount = document.querySelector("#high-score-count");
 const scoreCount = document.querySelector("#score-count");
 
+
 const restartGame = () => {
   const snakeOnGrid = document.querySelectorAll(".snake-default");
   for(let i = 0; i < snakeArray.length; i++) {
@@ -32,6 +33,7 @@ const restartGame = () => {
   generateFood();
   gameStart = true;
 }
+
 
 restartBtn.addEventListener("click", restartGame);
 

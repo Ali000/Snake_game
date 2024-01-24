@@ -32,7 +32,17 @@
     <img id="pause-game" src="pause.png" alt="Pause"><img id="play-game" src="play.png" alt="Play">
   </div>
 
+  <div class="dark-mode"><button id="dark-mode-btn">Dark Mode</button></div>
 
 </body>
+<script>
+  const darkModeBtn = document.querySelector("#dark-mode-btn");
+  const theGameBody = document.querySelector(".game-body");
+
+  darkModeBtn.addEventListener("click", () => {
+    console.log("dark Mode");
+    theGameBody.classList.toggle("dark-mode");
+  });
+</script>
 
 </html>
