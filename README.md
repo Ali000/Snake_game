@@ -7,7 +7,10 @@
   * Live Link
 * Game Flow
 * How to Play
-* Pseudocode
+* Code Snippte
+   * Grow Snake Logic
+   * Recursion Logic
+* Learned Outcomes
 * Future Improvments
 * Sources
 
