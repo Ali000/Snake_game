@@ -7,7 +7,7 @@
 
 ### Snake Game
 
-![Alt text](snakeGame.png)
+![Snake Game](snakeGame.png)
 
 This project was built as part of the **General Assembly's Software Engineering Immersive** course, the project is built without the use of any libraries or frameworks.<br>
 The purpose of the project is to practice DOM manipulation with javascript.
