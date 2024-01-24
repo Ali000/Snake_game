@@ -4,6 +4,7 @@
 * About the project
   * Snake Game
   * Built with
+  * Live Link
 * Game Flow
 * How to Play
 * Pseudocode
@@ -25,10 +26,13 @@ This project was built as part of the **General Assembly's Software Engineering 
 The purpose of the project is to practice DOM manipulation with javascript.
 
 ### Built with
-* HTML
-* CSS
-* JavaScript
+- ![HTML badge](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) 
+- ![CSS badge](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) 
+- ![JS badge](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) 
 
+
+### Live Link
+https://acidic-friction.surge.sh/
 ---
 
 # Game Flow
@@ -49,14 +53,80 @@ The snake would start as a head only and would grow in length when food is eaten
 
 ---
 
-# Pseudocode
-1- player respawn as a snake with one body segment.\
-2- food respawns randomly.\
-3- Snake will be still, untill the player uses the movemnet keys.\
-4- player should move around with the intention to collect as much as possible without crashing into the walls or the snake's body.\
-5- When the players reachs food, the body will increase in length \
-6- The game continues to run till a wall is hit or the snake's body. \
-7- player may pause the game.
+# Code Snippet
+
+## Snake Gworth Logic
+```
+const growSnake = (x, y) => {
+  const newSegment = document.createElement("div");
+  snakeArray.push({x: x, y: y});
+  for(let i = 0; i < snakeArray.length; i++) {
+    newSegment.className = "snake-default";
+    newSegment.style.gridArea = `${x} / ${y}`;
+    grid.append(newSegment);
+  }
+  if(ateFood === true) {
+    ateFood = false;
+  } else {
+    snakeArray.shift();
+    const snakeOnGrid = document.querySelectorAll(".snake-default");
+    if(snakeOnGrid.length > 1) {
+      snakeOnGrid[0].remove();
+    }
+  }
+};
+```
+
+This code will be updated constanlty, with every movement the body segment is shown and then removed, giving the illusion of motion around the grid. When food is eaten the one segment of the body will not be removed, which will increase the length of the snake.
+
+---
+
+## Recursion Logic
+
+```
+const move = (key) => {
+  if(gameStart === true && key === lastKey) {
+    setTimeout(() => {
+      if(key === "KeyD") {
+        directionArray[0][1] += 1;
+      } else if(key === "KeyA") {
+        directionArray[0][1] -= 1;
+      } else if(key === "KeyS") {
+        directionArray[0][0] += 1;
+      } else if(key === "KeyW") {
+        directionArray[0][0] -= 1;
+      }
+      growSnake(directionArray[0][0], directionArray[0][1]);
+      if(directionArray[0][0] === foodx && directionArray[0][1] === foody) {
+        ateFood = true;
+        score += 1;
+        highScore = score > highScore ? score : highScore;
+        highScoreCount.innerText = highScore;
+        scoreCount.innerText = score;
+        generateFood();
+      }
+      selfHit();
+      move(key);
+    }, 200);
+  }
+}
+
+```
+The Recusive function will allow to input interruptions to change the direction of the snake.
+
+---
+
+# Learned Outcomes
+1- Loops executes as fast as possible, setTimer or setInterval will not prevent that. \
+2- Each event listener trigger adds new commands to the execution stack. \
+3- Recusion can be used to detect user input, however each event listener will create a seperate recursive command in the execution stack. \
+4- setInterval offers better control over recuring commands, as they can be cleared using clearInterval. \
+5- DOM manipulation, functions such as:
+  * addEventListener
+  * classList.toggle
+  * createElement
+  * append
+  * querySelector
 
 ---
 
@@ -64,11 +134,15 @@ The snake would start as a head only and would grow in length when food is eaten
 1- Use setInterval function instead of recursion to continuously move the snake. \
 2- Improve the snake design. Make the snake head & the tail distinct from other body segments. \
 3- Create a logo for the game. \
-4- Add options to make the game more challenging.
+4- Code refactor. \
+5- Add options to make the game more challenging.
   * Obstacles on the map.
   * Multiple maps.
   * Multiple food types.
   * Add harmful food or enemies.
+
+
+
 
 # Sources
 https://www.freecodecamp.org/news/javascript-2d-arrays/ \
