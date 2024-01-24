@@ -45,7 +45,7 @@ The snake would start as a head only and would grow in length when food is eaten
 * If the player loses at the game they will be prompted to restart.
 * The player can navigate between the instructions page & the game page.
 
-![Alt text](snakeInstructions.png)
+![Instruction page](snakeInstructions.png)
 
 ---
 
@@ -55,7 +55,7 @@ The snake would start as a head only and would grow in length when food is eaten
 3- Snake will be still, untill the player uses the movemnet keys.\
 4- player should move around with the intention to collect as much as possible without crashing into the walls or the snake's body.\
 5- When the players reachs food, the body will increase in length \
-6- The game continue to run till a wall is hit or the snake's body.
+6- The game continues to run till a wall is hit or the snake's body. \
 7- player may pause the game.
 
 ---
