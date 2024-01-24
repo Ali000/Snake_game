@@ -1,7 +1,19 @@
-<!-- <details>
+<details>
 <summary>Table of Contents</summary>
 
-</details> -->
+* About the project
+  * Snake Game
+  * Built with
+* Game Flow
+* How to Play
+* Pseudocode
+* Future Improvments
+* Sources
+
+</details>
+<br>
+
+---
 
 # About the project
 
@@ -37,7 +49,7 @@ The snake would start as a head only and would grow in length when food is eaten
 
 ---
 
-### Pseudocode
+# Pseudocode
 1- player respawn as a snake with one body segment.\
 2- food respawns randomly.\
 3- Snake will be still, untill the player uses the movemnet keys.\
@@ -46,7 +58,19 @@ The snake would start as a head only and would grow in length when food is eaten
 6- The game continue to run till a wall is hit or the snake's body.
 7- player may pause the game.
 
-# sources
+---
+
+# Future Improvments
+1- Use setInterval function instead of recursion to continuously move the snake. \
+2- Improve the snake design. Make the snake head & the tail distinct from other body segments. \
+3- Create a logo for the game. \
+4- Add options to make the game more challenging.
+  * Obstacles on the map.
+  * Multiple maps.
+  * Multiple food types.
+  * Add harmful food or enemies.
+
+# Sources
 https://www.freecodecamp.org/news/javascript-2d-arrays/ \
 https://css-tricks.com/snippets/css/complete-guide-grid/ \
 https://www.youtube.com/watch?v=EiNiSFIPIQE&t=641s&ab_channel=SlayingTheDragon \
