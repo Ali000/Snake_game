@@ -102,13 +102,10 @@ const move = (key) => {
       growSnake(directionArray[0][0], directionArray[0][1]);
       if(directionArray[0][0] === foodx && directionArray[0][1] === foody) {
         ateFood = true;
-        score += 1;
-        highScore = score > highScore ? score : highScore;
-        highScoreCount.innerText = highScore;
-        scoreCount.innerText = score;
+        scoreUpdate();
         generateFood();
       }
-      selfHit();
+      collision();
       move(key);
     }, 200);
   }
