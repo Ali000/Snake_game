@@ -1,4 +1,3 @@
-// Back up from this version
 let gameStart = true; // Boolean to stop/start the game
 let snakeArray = [{x: 1, y: 1}]; // Array of objects each object is a snake body segment
 let directionArray = [[1, 1]]; // Array to steer the head of the snake, doesn't have to be an array
